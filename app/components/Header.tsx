@@ -1,12 +1,12 @@
-
+import styles from '../page.module.css';
 interface HeaderProps {
     title: string
 }
 
 const Header: React.FC<HeaderProps> = ({ title }) => {
     return (
-        <header>
-            <h1>{title}</h1>
+        <header className={styles.header}>
+            <h1 className={styles.title}>{title}</h1>
         </header>
     )
 }

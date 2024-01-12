@@ -1,0 +1,41 @@
+.container {
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin: 20px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.registerUser {
+	color: #55b1ff;
+}
+
+.registerUser:hover {
+	color: #136496;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.loginForm {
+	display: flex;
+	flex-direction: column;
+
+	margin: 1em auto;
+}
+
+.formElement {
+	display: flex;
+	flex-direction: column;
+
+}
+
+.loginForm label {
+	margin-bottom: 0.35em;
+	font-size: 1.1em;
+}
+
+.loginForm input {
+	padding: 0.25rem 0.5rem;
+	margin-bottom: 0.5em;
+}
