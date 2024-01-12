@@ -1,14 +1,15 @@
 'use client'
 import styles from './page.module.css';
+
+import { useRouter } from 'next/navigation';
 import  ButtonPrimary from '../components/ButtonPrimary';
+import React from "react";
 interface LoginProps {
     
     }
 
 const Login: React.FC<LoginProps> = () => {
-    function submitLogin() {
-        console.log("Login submitted");
-    }
+   const router = useRouter();
 
     return (
         <div className={styles.container}>
@@ -23,7 +24,7 @@ const Login: React.FC<LoginProps> = () => {
                     <input id="password" type="password" className={styles.input} placeholder=''/>
                 </div>
 
-                <ButtonPrimary text="Login" clickEvent={submitLogin}/>
+                <ButtonPrimary text="Login" clickEvent={() => router.push('/dashboard')}/>
             </form>
         </div>
     )
