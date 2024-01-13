@@ -3,10 +3,11 @@ import Link from 'next/link';
 import styles from './navigation.module.css'
 import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
-import { useUser} from "@/app/context/userContext";
+import { useUser } from "@/app/context/userContext";
+import ButtonPrimary from "@/app/components/ButtonPrimary";
 
 const Navigation: React.FC = () => {
-    const { isLogged } = useUser();
+    const { user } = useUser();
     const [navLinks, setNavLinks] = useState([
         'home',
         'about',
@@ -23,7 +24,7 @@ const Navigation: React.FC = () => {
     return (
         <nav className={styles.nav}>
 
-            {isLogged ?
+            {user.isLogged ?
                 navLinks.map((path) => {
                     return <Link href={`/${path}`}>{path.toUpperCase()} | </Link>
                 }) :
@@ -34,7 +35,7 @@ const Navigation: React.FC = () => {
 
             }
 
-
+            {user.isLogged ? <p className={styles.usernameInfo}>User logged: <span className={styles.username}>{user.username}</span> </p> : null}
         </nav>
     )
 }

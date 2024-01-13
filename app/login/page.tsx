@@ -5,20 +5,21 @@ import Link from 'next/link';
 import React, { useState } from "react";
 import { useUser } from '@/app/context/userContext';
 
-interface LoginProps {
-    
-    }
 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
    const router = useRouter();
-   const { setIsLogged } = useUser();
+   const { user,  setUser } = useUser();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       console.log('username: ', username, 'password: ', password);
-        setIsLogged(true);
+        setUser({
+            isLogged: true,
+            username: username,
+            password: password
+        })
         router.push('/');
   }
 
