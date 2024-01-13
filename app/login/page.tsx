@@ -1,11 +1,9 @@
 'use client'
 import styles from './page.module.css';
-import { useUser } from '../userContext';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import  ButtonPrimary from '../components/ButtonPrimary';
 import React, { useState } from "react";
-
+import { useUser } from '@/app/context/userContext';
 
 interface LoginProps {
     
@@ -15,20 +13,19 @@ const Login: React.FC<LoginProps> = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
    const router = useRouter();
-   const { setUser } = useUser();
+   const { setIsLogged } = useUser();
 
-   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-       e.preventDefault();
-       console.log(username, password);
-       setUser({ username, password });
-
-         router.push('/dashboard');
-   }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      console.log('username: ', username, 'password: ', password);
+        setIsLogged(true);
+        router.push('/');
+  }
 
     return (
         <div className={styles.container}>
             <h3 className={styles.title}>Login or <Link href={'/registerUser'} className={styles.registerUser}>Register User</Link></h3>
-            <form className={styles.loginForm}>
+            <form onSubmit={handleSubmit} className={styles.loginForm}>
                 <div className={styles.formElement}>
                     <label htmlFor="username">Username:</label>
                     <input
@@ -48,7 +45,7 @@ const Login: React.FC<LoginProps> = () => {
                         placeholder=''/>
                 </div>
 
-                <ButtonPrimary text="Login"  clickEvent={handleLogin} />
+                <input type="submit" value="Login" className={styles.submitBtn} />
             </form>
         </div>
     )
