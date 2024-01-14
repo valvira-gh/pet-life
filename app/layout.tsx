@@ -23,7 +23,10 @@ export default function RootLayout({
         <html lang="en">
             <body className={inter.className}>
                 <Header title="Pet Life" />
-                <Navigation />
+                <div className='nav-wrapper'>
+                    <Navigation />
+                </div>
+
 
                   {children}
             </body>

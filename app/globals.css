@@ -112,3 +112,10 @@ body {
 
   align-items: center;
 }
+
+.nav-wrapper {
+
+  width:  100%;
+  display: flex;
+  justify-content: flex-end;
+}

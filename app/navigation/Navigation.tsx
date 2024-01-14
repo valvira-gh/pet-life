@@ -16,28 +16,15 @@ const Navigation: React.FC = () => {
 
     const router = useRouter();
 
-    const navigateTo = (path: string) => {
-        router.push(path);
-    };
-
-
     return (
         <nav className={styles.nav}>
-
             {user.isLogged ?
                 navLinks.map((path) => {
-                    return <Link href={`/${path}`}>{path.toUpperCase()} | </Link>
+                    return <Link href={`/${path}`}>{path.toUpperCase()}  |  </Link>
                 }) :
-                <>
-                    <button className={styles.loginBtn} onClick={() => navigateTo('/login')}>Login</button>
-
-                </>
-
+                null
             }
-
-            {user.isLogged ? <p className={styles.usernameInfo}>User logged: <span className={styles.username}>{user.username}</span> </p> : null}
         </nav>
     )
 }
-
 export default Navigation;

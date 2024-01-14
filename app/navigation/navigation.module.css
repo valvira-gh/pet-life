@@ -1,0 +1,37 @@
+.nav {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
+}
+
+
+
+.loginBtn {
+	background-color: #16a2d8;
+	border-radius: 5px;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: 500;
+	line-height: 1.5;
+	padding: 0.5rem 1rem;
+	transition: all 0.2s ease-in-out;
+	margin-top: 1rem;
+	margin-right: 1rem;
+}
+
+.registerBtn {
+	background-color: #223cc1;
+	border-radius: 5px;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 1.1rem;
+	font-weight: 500;
+	line-height: 1.5;
+	padding: 0.5rem 1rem;
+	transition: all 0.2s ease-in-out;
+	margin-top: 1rem;
+}
