@@ -25,7 +25,11 @@ const Login: React.FC = () => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>Login or <Link href={'/registerUser'} className={styles.registerUser}>Register User</Link></h3>
+            <div className={styles.titleContainer}>
+                <h3 className={styles.title}>Login or <Link href={'/registerUser'} className={styles.registerUser}>Register
+                    User</Link></h3>
+            </div>
+
             <form onSubmit={handleSubmit} className={styles.loginForm}>
                 <div className={styles.formElement}>
                     <label htmlFor="username">Username:</label>

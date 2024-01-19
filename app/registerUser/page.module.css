@@ -6,37 +6,22 @@
 
 	display: flex;
 	flex-direction: column;
-}
 
-.titleContainer {
-	display: flex;
+
 }
 
 .title {
 	font-size: 1.3rem;
 	font-weight: 600;
 	margin-bottom: 0.5em;
+	text-align: center;
 
-
-
-	width: 70%;
-}
-
-.registerUser {
 	color: #55b1ff;
 }
 
-.registerUser:hover {
-	color: #136496;
-	cursor: pointer;
-	text-decoration: underline;
-}
-
-.loginForm {
+.registerUserForm {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-
 
 	margin: 1em auto;
 }
@@ -44,15 +29,15 @@
 .formElement {
 	display: flex;
 	flex-direction: column;
-
+	margin: 0.25em auto;
 }
 
-.loginForm label {
+.registerUserForm label {
 	margin-bottom: 0.35em;
 	font-size: 1.1em;
 }
 
-.loginForm input {
+.registerUserForm input {
 	padding: 0.25rem 0.5rem;
 	margin-bottom: 0.5em;
 }
@@ -69,4 +54,8 @@
 	padding: 0.5rem 1rem;
 	transition: all 0.2s ease-in-out;
 	margin-top: 1rem;
+}
+
+.submitBtn:hover {
+	background-color: #135d96;
 }
