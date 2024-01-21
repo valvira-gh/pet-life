@@ -1,40 +1,67 @@
 'use client';
-import { createContext, useContext, useState }  from "react";
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Määrittele käyttäjän tilatyyppi
+// 1. Kontekstin määrittely:
 type UserType = {
     isLogged: boolean;
     username: string;
     password: string;
-};
+}
 
-// Luodaan konteksti käyttäjän tilalle ja sen pävittämisfunktiolle
 const UserContext = createContext<{
     user: UserType;
-    setUser: React.Dispatch<React.SetStateAction<UserType>>
+    setUser: React.Dispatch<React.SetStateAction<UserType>>;
+    registerUser: (username: string, password: string) => boolean;
+    loginUser: (username: string, password: string) => boolean;
 }>({
-    user: {
-        isLogged: false,
-        username: '',
-        password: ''
-    },
-    setUser: () => {}
+    user: { isLogged: false, username: '', password: '' },
+    setUser: () => {},
+    registerUser: () => false,
+    loginUser: () => false,
 });
 
-// Luodaan hook kontekstin käyttöön
 export const useUser = () => useContext(UserContext);
 
-// Luodaan provider-komponentti kontekstin tarjoamiseen
-export const UserProvider: React.FC<{children: React.ReactNode}> =({  children }) => {
-    const [user, setUser] = useState<UserType>({
-        isLogged: false,
-        username: '',
-        password: ''
-    });
+
+// 2. UserProvider -komponentin luominen:
+export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children}) => {
+    const [user, setUser] = useState<UserType>({ isLogged: false, username: '', password: '' })
+
+    useEffect((): void => {
+        // Tarkista, onko käyttäjä jo kirjautunut
+        const storedUser: string | null = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        };
+    }, []);
+
+    const registerUser = (username: string, password: string) => {
+        // Tarkista, onko käyttäjänimi jo käytössä
+        let users = JSON.parse(localStorage.getItem('users') || '[]');
+        if (users.some((u: { username: string; }) => u.username === username)) {
+            return false; // Käyttäjänimi on jo käytössä
+        }
+
+        // Tallenna uusi käyttäjä
+        users.push({ username, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        return true;
+    };
+
+    const loginUser = (username: string, password: string) => {
+        let users = JSON.parse(localStorage.getItem('users') || '[]');
+        let foundUser = users.find((u: { username: string; password: string; }) => u.username === username && u.password === password);
+        if (foundUser) {
+            setUser({ isLogged: true, username, password });
+            localStorage.setItem('user', JSON.stringify({ isLogged: true, username, password }));
+            return true;
+        }
+        return false;
+    };
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider value={{ user, setUser, registerUser, loginUser }}>
             {children}
         </UserContext.Provider>
-    )
-}
+    );
+};
