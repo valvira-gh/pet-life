@@ -14,6 +14,7 @@ const Login: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<any> => {
         e.preventDefault()
+        // If logic in loginUser()-function in userContext.tsx returns 'true'
         if (loginUser(username, password)) {
             // If login is success, we'll route user into Home:
             router.push('/')

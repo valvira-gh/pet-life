@@ -24,3 +24,13 @@
     text-align: center;
     color: aqua;
 }
+
+.clearBtn {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: red;
+    border-radius: 5px;
+    border: 2px solid white;
+    margin-top: 10em;
+}
