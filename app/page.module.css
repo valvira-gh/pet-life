@@ -6,23 +6,8 @@
     flex-direction: column;
     align-items: center;
 
-    /* border: 1px solid white; */
-}
 
-/* *********
-   header
-***********/
-.header {
-    border-bottom: 3px double #5dafaf;
-    width: 15rem;
-
-    margin: 1rem 0;
-}
-
-.title {
-    font-size: 3.5rem;
-    text-align: center;
-    color: aqua;
+    margin-top: 1em;
 }
 
 .clearBtn {
@@ -34,3 +19,19 @@
     border: 2px solid white;
     margin-top: 10em;
 }
+
+.container {
+
+}
+
+.greeting {
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    && .username {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #06e2ff;
+    }
+}
+

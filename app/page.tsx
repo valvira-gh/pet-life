@@ -29,7 +29,13 @@ const Home = () => {
     return (
         <div className={styles.App}>
             <div className={styles.container}>
-                {user.isLogged ? <h3>Welcome {cutFirstName(user.username)}</h3> : <Login />}
+                {user.isLogged ? (
+                    <h3 className={styles.greeting}>Welcome
+                        <span className={styles.username}> {cutFirstName(user.username)}</span>
+                        </h3>
+
+                )
+                    : <Login />}
             </div>
             <button onClick={clearLocalStorage} className={styles.clearBtn}>Clear localStorage</button>
         </div>

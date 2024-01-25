@@ -1,30 +1,30 @@
 'use client';
 import Link from 'next/link';
-import styles from './navigation.module.css'
+import './navigation.css'
 import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
 import { useUser } from "@/app/context/userContext";
-import ButtonPrimary from "@/app/components/ButtonPrimary";
+import { usePathname } from "next/navigation";
 
+const Separator: React.FC = () => <div className='separator'>|</div>
 const Navigation: React.FC = () => {
+    const pathname = usePathname();
     const { user } = useUser();
-    const [navLinks, setNavLinks] = useState([
-        'home',
-        'about',
-        'contact'
-    ])
-
     const router = useRouter();
 
     return (
-        <nav className={styles.nav}>
-            {user.isLogged ?
-                navLinks.map((path) => {
-                    return <Link href={`/${path}`}>{path.toUpperCase()}  |  </Link>
-                }) :
-                null
-            }
-        </nav>
+        <div className='container'>
+            {user.isLogged ? (
+                <>
+                    <Link href={'/'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                    <Separator />
+                    <Link href={'/instructions'} className={`link ${pathname === '/instructions' ? 'active' : ''}`}>Instructions</Link>
+                    <Separator />
+                    <Link href={'/my-pets'} className={`link ${pathname === '/my-pets' ? 'active' : ''}`}>My Pets</Link>
+                </>
+
+            ) : null }
+        </div>
     )
 }
 export default Navigation;

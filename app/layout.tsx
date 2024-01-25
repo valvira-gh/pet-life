@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import './globals.css'
 
 import { UserProvider } from './context/userContext';
 import Header from './components/Header';
 import Navigation from './navigation/Navigation';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,11 +22,12 @@ export default function RootLayout({
       <UserProvider>
         <html lang="en">
             <body className={inter.className}>
-                <Header title="Pet Life" />
-                <div className='nav-wrapper'>
-                    <Navigation />
-                </div>
-
+                <header>
+                    <Header title="Pet Life" />
+                    <nav>
+                        <Navigation />
+                    </nav>
+                </header>
 
                   {children}
             </body>
