@@ -1,6 +1,7 @@
 'use client';
 import styles from './page.module.css';
 import React, { useState } from "react";
+import { useUser } from "@/app/context/userContext";
 
 type NewUserTypes = {
     id: number,
@@ -20,6 +21,8 @@ const RegisterUser: React.FC<RegisterUserTypes> = () => {
         password: '',
         confirmPassword: ''
     })
+
+    const { registerUser } = useUser();
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewUser({ ...newUser,  username: e.target.value });

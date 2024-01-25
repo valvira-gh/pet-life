@@ -1,3 +1,25 @@
+/* HEADER */
+.header {
+  border-bottom: 2px solid aqua;
+  width: 25%;
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.title {
+  font-size: 3.5rem;
+  color: #06e2ff;
+  margin: .05em;
+  border-bottom: 1px solid aqua;
+  text-align: center;
+  width: 90%;
+}
+
+
+/* BUTTONS */
+
 .buttonPrimary {
   background-color: #16a2d8;
   border-radius: 5px;
@@ -15,3 +37,4 @@
 .buttonPrimary:hover {
   background-color: #135d96;
 }
+
