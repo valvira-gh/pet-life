@@ -11,13 +11,13 @@
 }
 
 .clearBtn {
-    padding: 1rem;
-    font-size: 1.1rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
     font-weight: 500;
     background: red;
     border-radius: 5px;
     border: 2px solid white;
-    margin-top: 10em;
+    margin-top: 20em;
 }
 
 .container {

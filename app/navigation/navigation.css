@@ -1,10 +1,39 @@
 .container {
+	width: 100vw;
 	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: center;
-	margin-top: 1em;
+	justify-content: flex-end; /* Levittää lapsielementit tasaisesti */
+	padding: 0;
+	align-items: center; /* Keskittää lapsielementit pystysuunnassa */
 }
+
+.nav-wrapper {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: center;
+}
+
+.navLinks {
+	/* Tämä voi olla tarpeen, jos haluat pitää linkit yhdessä */
+	display: flex;
+	justify-content: center;
+
+}
+
+.btn-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-right: 0.5em;
+	margin-left: auto;
+	margin-top: 0.5em;
+}
+
+.signout-btn {
+	font-size: 1rem;
+	padding: 0.25em 0.5em;
+}
+
 
 .link {
 	display: flex;

@@ -12,19 +12,37 @@ const Navigation: React.FC = () => {
     const { user } = useUser();
     const router = useRouter();
 
-    return (
-        <div className='container'>
-            {user.isLogged ? (
-                <>
-                    <Link href={'/'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
-                    <Separator />
-                    <Link href={'/instructions'} className={`link ${pathname === '/instructions' ? 'active' : ''}`}>Instructions</Link>
-                    <Separator />
-                    <Link href={'/my-pets'} className={`link ${pathname === '/my-pets' ? 'active' : ''}`}>My Pets</Link>
-                </>
+    const signOut = () => {
+        console.log(`Signing out user: ${user.username}.`)
+    }
 
-            ) : null }
-        </div>
-    )
+    return (
+        <>
+            {user.isLogged ? (
+                <div className='container'>
+                    <div className='nav-wrapper'>
+
+                        <div className='btn-container'>
+                            <button className='signout-btn' onClick={signOut}>Sign Out</button>
+                        </div>
+
+                        <div className='navLinks'>
+                            <Link href={'/'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                            <Separator/>
+                            <Link href={'/instructions'}
+                                  className={`link ${pathname === '/instructions' ? 'active' : ''}`}>Instructions</Link>
+                            <Separator/>
+                            <Link href={'/my-pets'} className={`link ${pathname === '/my-pets' ? 'active' : ''}`}>My
+                                Pets</Link>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            ) : null}
+        </>
+    );
 }
+
 export default Navigation;
