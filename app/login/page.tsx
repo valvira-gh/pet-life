@@ -9,19 +9,19 @@ import { useUser } from '@/app/context/userContext';
 const Login: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { loginUser } = useUser() // We'll use loginUser() function from userContext
    const router = useRouter();
-   const { user,  setUser } = useUser();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      console.log('username: ', username, 'password: ', password);
-        setUser({
-            isLogged: true,
-            username: username,
-            password: password
-        })
-        router.push('/');
-  }
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<any> => {
+        e.preventDefault()
+        if (loginUser(username, password)) {
+            // If login is success, we'll route user into Home:
+            router.push('/')
+        } else {
+            // If login is unsuccessful, we'll show error msg:
+            console.log('Invalid username or password.')
+        }
+    }
 
     return (
         <div className={styles.container}>

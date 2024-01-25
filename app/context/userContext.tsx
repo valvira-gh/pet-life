@@ -25,7 +25,9 @@ export const useUser = () => useContext(UserContext);
 
 // 2. UserProvider -komponentin luominen:
 export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children}) => {
-    const [user, setUser] = useState<UserType>({ isLogged: false, username: '', password: '' })
+    const [user, setUser] = useState<UserType>(
+        { isLogged: false, username: '', password: '' }
+    )
 
     useEffect((): void => {
         // Tarkista, onko käyttäjä jo kirjautunut
@@ -35,11 +37,13 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children})
         };
     }, []);
 
-    const registerUser = (username: string, password: string) => {
+
+    // Uuden käyttäjän rekisteröinti
+    const registerUser = (username: string, password: string): boolean => {
         // Tarkista, onko käyttäjänimi jo käytössä
         let users = JSON.parse(localStorage.getItem('users') || '[]');
-        if (users.some((u: { username: string; }) => u.username === username)) {
-            return false; // Käyttäjänimi on jo käytössä
+        if (users.some((u: { username: string; }): boolean => u.username === username)) {
+            return false; // Jos käyttäjänimi on jo käytössä, palautetaan false
         }
 
         // Tallenna uusi käyttäjä
@@ -48,7 +52,7 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children})
         return true;
     };
 
-    const loginUser = (username: string, password: string) => {
+    const loginUser = (username: string, password: string): boolean => {
         let users = JSON.parse(localStorage.getItem('users') || '[]');
         let foundUser = users.find((u: { username: string; password: string; }) => u.username === username && u.password === password);
         if (foundUser) {
