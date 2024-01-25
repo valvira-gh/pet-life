@@ -1,35 +1,35 @@
 .container {
-	border: 1px solid #ccc;
+	border: 2px solid #385e78;
 	border-radius: 5px;
 	padding: 30px;
 	margin: 20px;
+	max-width: 30svw;
 
 	display: flex;
 	flex-direction: column;
 
-
+	background: #020c1d;
 }
 
 .title {
 	font-size: 1.3rem;
 	font-weight: 600;
-	margin-bottom: 0.5em;
-	text-align: center;
-
-	color: #55b1ff;
+	color: #b2d9ff;
+	width: 80%;
+	margin: 0 1em;
 }
 
 .registerUserForm {
 	display: flex;
 	flex-direction: column;
 
-	margin: 1em auto;
+	margin: 1em 0.8em;
 }
 
 .formElement {
 	display: flex;
 	flex-direction: column;
-	margin: 0.25em auto;
+	margin: 0.35em auto;
 }
 
 .registerUserForm label {
@@ -39,7 +39,7 @@
 
 .registerUserForm input {
 	padding: 0.25rem 0.5rem;
-	margin-bottom: 0.5em;
+
 }
 
 .submitBtn {
@@ -51,9 +51,9 @@
 	font-size: 1.1rem;
 	font-weight: 500;
 	line-height: 1.5;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem;
 	transition: all 0.2s ease-in-out;
-	margin-top: 1rem;
+	margin-top: 1em;
 }
 
 .submitBtn:hover {

@@ -1,7 +1,9 @@
 /* HEADER */
 .header {
   border-bottom: 2px solid aqua;
-  width: 25%;
+
+  min-width: 22svw;
+
 
   display: flex;
   justify-content: center;
