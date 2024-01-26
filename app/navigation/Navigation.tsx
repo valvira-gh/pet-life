@@ -10,11 +10,15 @@ const Separator: React.FC = () => <div className='separator'>|</div>
 const Navigation: React.FC = () => {
     const pathname = usePathname();
     const { user } = useUser();
+    const { logoutUser } = useUser();
     const router = useRouter();
 
     const signOut = () => {
         console.log(`Signing out user: ${user.username}.`)
+        logoutUser()
+        console.log(user)
     }
+    console.log(user)
 
     return (
         <>

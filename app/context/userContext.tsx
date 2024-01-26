@@ -13,11 +13,13 @@ const UserContext = createContext<{
     setUser: React.Dispatch<React.SetStateAction<UserType>>;
     registerUser: (username: string, password: string) => boolean;
     loginUser: (username: string, password: string) => boolean;
+    logoutUser: () => void;
 }>({
     user: { isLogged: false, username: '', password: '' },
     setUser: () => {},
     registerUser: () => false,
     loginUser: () => false,
+    logoutUser: () => {},
 });
 
 export const useUser = () => useContext(UserContext);
@@ -63,8 +65,20 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children})
         return false;
     };
 
+    const logoutUser = (): void => {
+        // Set 'user.isLogged' state to 'false'
+        setUser(prevUser => ({ ...prevUser, isLogged: false }));
+
+        // Update logging out state to localStorage
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            const updatedUser = { ...JSON.parse(storedUser), isLogged: false};
+            localStorage.setItem('user', JSON.stringify(updatedUser));
+        }
+    }
+
     return (
-        <UserContext.Provider value={{ user, setUser, registerUser, loginUser }}>
+        <UserContext.Provider value={{ user, setUser, registerUser, loginUser, logoutUser }}>
             {children}
         </UserContext.Provider>
     );
