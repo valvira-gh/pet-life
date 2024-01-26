@@ -13,22 +13,18 @@ const Navigation: React.FC = () => {
     const { logoutUser } = useUser();
     const router = useRouter();
 
-    const signOut = () => {
+    const signOutUser = () => {
         console.log(`Signing out user: ${user.username}.`)
         logoutUser()
         console.log(user)
     }
-    console.log(user)
+
 
     return (
         <>
             {user.isLogged ? (
                 <div className='container'>
                     <div className='nav-wrapper'>
-
-                        <div className='btn-container'>
-                            <button className='signout-btn' onClick={signOut}>Sign Out</button>
-                        </div>
 
                         <div className='navLinks'>
                             <Link href={'/'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
@@ -40,6 +36,9 @@ const Navigation: React.FC = () => {
                                 Pets</Link>
                         </div>
 
+                        <div className='btn-container'>
+                            <button className='signout-btn' onClick={signOutUser}>Sign Out</button>
+                        </div>
 
                     </div>
 

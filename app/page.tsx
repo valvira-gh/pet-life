@@ -6,7 +6,19 @@ import {useUser} from '@/app/context/userContext';
 
 const Home = () => {
     const { user } = useUser();
-    const [firstName, setFirstName] = useState('');
+    const [firstName, setFirstName] = useState<string>('');
+    const [currentDate, setCurrentDate] = useState<string>()
+
+    // Function to get current date in local time
+    useEffect(() => {
+        const date = new Date();
+        console.log(date)
+        const day = date.getDate();
+        const month = date.getMonth() + 1
+        console.log(month)
+        const year = date.getFullYear()
+        setCurrentDate(day + "." + month + "." + year)
+    }, [])
 
     useEffect(() => {
         if (user.isLogged) {
@@ -30,14 +42,19 @@ const Home = () => {
         <div className={styles.App}>
             <div className={styles.container}>
                 {user.isLogged ? (
-                    <h3 className={styles.greeting}>Welcome
-                        <span className={styles.username}> {cutFirstName(user.username)}</span>
-                        </h3>
-
+                    <div className={styles.greetingDateBox}>
+                        <h3 className={styles.greeting}>Welcome
+                            <span className={styles.username}> {cutFirstName(user.username)}</span>! ❤️
+                            </h3>
+                        <p className={styles.date}>
+                           Today is
+                            <span className={styles.num}> {currentDate}</span>
+                        </p>
+                     </div>
                 )
                     : <Login />}
             </div>
-            <button onClick={clearLocalStorage} className={styles.clearBtn}>Clear localStorage</button>
+            {/* <button onClick={clearLocalStorage} className={styles.clearBtn}>Clear localStorage</button>*/}
         </div>
     )
 };
