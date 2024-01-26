@@ -24,6 +24,26 @@
 
 }
 
+.greetingDateBox {
+    border: 2px solid #1e597e;
+    padding: 1.25em;
+    border-radius: 3px;
+    background: #091b24;
+
+    text-align: center;
+}
+
+.dateText {
+    margin: 0.5em;
+    font-size: 1.1rem;
+}
+
+.timeText {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Barlow'
+}
+
 .greeting {
     font-size: 1.4rem;
     font-weight: 500;
