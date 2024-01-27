@@ -6,6 +6,7 @@ type UserType = {
     isLogged: boolean;
     username: string;
     password: string;
+    hasPets: boolean;
 }
 
 const UserContext = createContext<{
@@ -15,7 +16,7 @@ const UserContext = createContext<{
     loginUser: (username: string, password: string) => boolean;
     logoutUser: () => void;
 }>({
-    user: { isLogged: false, username: '', password: '' },
+    user: { isLogged: false, username: '', password: '', hasPets: false },
     setUser: () => {},
     registerUser: () => false,
     loginUser: () => false,
@@ -28,7 +29,7 @@ export const useUser = () => useContext(UserContext);
 // 2. UserProvider -komponentin luominen:
 export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children}) => {
     const [user, setUser] = useState<UserType>(
-        { isLogged: false, username: '', password: '' }
+        { isLogged: false, username: '', password: '', hasPets: false }
     )
 
     useEffect((): void => {
@@ -56,9 +57,9 @@ export const UserProvider: React.FC<{children: React.ReactNode}> = ({ children})
 
     const loginUser = (username: string, password: string): boolean => {
         let users = JSON.parse(localStorage.getItem('users') || '[]');
-        let foundUser = users.find((u: { username: string; password: string; }) => u.username === username && u.password === password);
+        let foundUser = users.find((u: { username: string,  password: string; }) => u.username === username && u.password === password);
         if (foundUser) {
-            setUser({ isLogged: true, username, password });
+            setUser({hasPets: false, isLogged: true, username, password});
             localStorage.setItem('user', JSON.stringify({ isLogged: true, username, password }));
             return true;
         }
