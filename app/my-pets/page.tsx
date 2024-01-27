@@ -27,25 +27,36 @@ const Message: React.FC<MessageProps> = ({ text }) => <p className={styles.messa
                     <Message text="You haven't registered any Pet yet."/>}
             </div>
 
-          <button onClick={handleShowForm} className={styles.addNewPetBtn}>Add New Pet</button>
 
-            <div className={styles.addPetContainer}>
-                <h3 className={styles.addPetTitle}>
-                    Add new Pet
-                </h3>
+            {showForm ? <AddNewPetsForm/> :
+                <button onClick={handleShowForm} className={styles.addNewPetBtn}>Add New Pet</button>}
 
-                <form className={styles.addPetForm}>
-                    <p className={styles.formTitle}>
-                        What kind of Pet Friend you want to add?
-                    </p>
-                    <select className={styles.dropdownMenu}>
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                    </select>
-                </form>
-            </div>
+
         </div>
     )
  }
 
 export default MyPets;
+
+const AddNewPetsForm: React.FC = () => {
+     return (
+         <div className={styles.addPetContainer}>
+             <h3 className={styles.addPetTitle}>
+                 Add new Pet
+             </h3>
+         <form className={styles.addPetForm}>
+             <p className={styles.formTitle}>
+                 What kind of Pet Friend you want to add?
+             </p>
+             <select className={styles.dropdownMenu}>
+                 <option value="dog">Dog</option>
+                 <option value="cat">Cat</option>
+             </select>
+             <div className={styles.submitBtnContainer}>
+                 <input type='submit' className={styles.submitPetBtn} value='Next'/>
+             </div>
+
+         </form>
+         </div>
+     )
+}

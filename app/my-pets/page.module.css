@@ -55,6 +55,7 @@
 	height: 10em;
 
 	justify-content: space-around;
+
 }
 
 .addPetTitle {
@@ -66,8 +67,20 @@
 .formTitle {
 	font-size: 1.1rem;
 	font-family: 'Cantarell', monospace;
+	margin-bottom: 1em;
 }
 
 .dropdownMenu {
 	font-size: 1.5rem;
+}
+
+.submitBtnContainer {
+	margin-top: 1.5em;
+	text-align: end;
+}
+
+.submitPetBtn {
+	font-size: 1.3rem;
+padding: 0.25em;
+	max-width: 3em;
 }
