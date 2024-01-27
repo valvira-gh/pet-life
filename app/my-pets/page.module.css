@@ -1,0 +1,73 @@
+.container {
+
+
+
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.petsContainer {
+	border: 4px double #385e78;
+	border-radius: 5px;
+	padding: 1em;
+	margin: 2em auto;
+}
+
+.temporary {
+	font-size: 1.5rem;
+	margin-top: 1em;
+	color: #df2209;
+}
+
+.formCard {
+	border: 1px solid #385e78;
+}
+
+.addPetContainer {
+	margin: 2em;
+	padding: 2.5em;
+
+	border: 2px solid #385e78;
+	border-radius: 3px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.addNewPetBtn {
+	font-size: 1.2rem;
+	font-weight: 500;
+	padding: 0.25em 0.5em;
+	margin: 0.5em;
+}
+
+.addPetForm {
+	display: flex;
+	flex-direction: column;
+
+
+	padding: 1em;
+	max-width: 130%;
+	height: 10em;
+
+	justify-content: space-around;
+}
+
+.addPetTitle {
+	margin-bottom: 1em;
+	font-family: 'Cantarell', monospace;
+	font-size: 2rem;
+}
+
+.formTitle {
+	font-size: 1.1rem;
+	font-family: 'Cantarell', monospace;
+}
+
+.dropdownMenu {
+	font-size: 1.5rem;
+}

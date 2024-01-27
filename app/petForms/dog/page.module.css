@@ -1,0 +1,46 @@
+.formCard {
+	border: 1px solid #385e78;
+	padding: 1em;
+}
+
+.formElement {
+	display: flex;
+	flex-direction: column;
+
+	margin: 1.5em;
+	padding: 1em;
+
+	border: 1px solid #135d96;
+
+
+	&& .label {
+		margin: 0.25em 0;
+		font-size: 1.1rem;
+
+	}
+
+	&& .inputField {
+		font-size: 1.2rem;
+		padding: 0.1em 0.2em;
+	}
+}
+
+.genderLabel {
+	margin-right: 0.5em;
+}
+
+.radioBtn {
+	margin: auto 0.1em auto 0.5em;
+}
+
+.ageContainer {
+	display: flex;
+	align-items: center;
+}
+
+.ageField {
+	font-size: 1.5rem;
+	max-width: 15%;
+	padding: 0.25em;
+	margin: 1em;
+}
