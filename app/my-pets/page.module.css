@@ -52,7 +52,6 @@
 
 	padding: 1em;
 	max-width: 130%;
-	height: 10em;
 
 	justify-content: space-around;
 
@@ -71,7 +70,9 @@
 }
 
 .dropdownMenu {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
+	padding: 0.25em 0.5em;
+	max-height: 2.5em;
 }
 
 .submitBtnContainer {
