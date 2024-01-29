@@ -6,6 +6,7 @@ import { useFormStatus } from 'react-dom';
 import { addPet } from "@/app/actions";
 import styles from './page.module.css';
 import { useRouter } from "next/navigation";
+import { PetProvider, usePet } from "@/app/context/petContext";
 
 
 /* SUBMIT BUTTON */
@@ -21,20 +22,23 @@ function SubmitBtn() {
 /* ADD-PET PAGE */
 const AddPetForm: React.FC = () => {
     const router = useRouter(); // Initializes useRouter
-    const [selectedPet, setSelectedPet] = useState<string>(""); // Initializes user-selected Pet
+   const { selectedPet, setSelectedPet} = usePet();
+   const [pet, setPet] = useState('');
 
     // Handles change of selected pet
     const handlePetChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-        const pet: string = event.target.value; // Crabs the selection
-        setSelectedPet(pet); // Re-valuates 'selectedPet'-state
+        setPet(event.target.value);
     };
+
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        router.push(`add-pet/${selectedPet}-form`)
+        setSelectedPet(pet);
+        router.push(`add-pet/${pet}-form`)
     }
 
     return (
+        <PetProvider>
         <div className={styles.addPetContainer}>
             <h3 className={styles.addPetTitle}>
                 Add new Pet
@@ -64,6 +68,7 @@ const AddPetForm: React.FC = () => {
                 </div>
             </form>
         </div>
+        </PetProvider>
     )
 }
 
