@@ -5,7 +5,7 @@ type DogProps = {
     // Props
 }
 
-const Page: React.FC<DogProps> = () => {
+const DogForm: React.FC<DogProps> = () => {
 
     return (
         <div className={styles.formCard}>
@@ -37,4 +37,4 @@ const Page: React.FC<DogProps> = () => {
     )
 }
 
-export {Page};
+export default DogForm;
