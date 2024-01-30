@@ -1,16 +1,17 @@
 import styles from './pet-form/page.module.css';
-import { usePet } from '@/app/context/petContext'
+import { usePet } from '@/app/lib/context/petContext'
 import { getServerSideProps } from "next/dist/build/templates/pages";
-import petQuestions from "@/app/add-pet/petQuestions";
+import petQuestions from "@/app/lib/petQuestions";
 import React from "react";
+import {string} from "prop-types";
 
-const PetForm: React.FC = ({ petType: string }): any => {
-    const questions = petQuestions[petType] || [];
+const PetForm: React.FC = ( pet: {} ): any => {
+    const questions = petQuestions.pet: { string }[] || [];
 
     return (
         <form className={styles.formCard}>
             <h3 className={styles.formTitle}>
-                {`Add new ${petType}`}
+                {`Add new ${pet}`}
             </h3>
         </form>
     )

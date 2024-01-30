@@ -3,7 +3,7 @@ import Link from 'next/link';
 import './nav.css'
 import { useRouter } from 'next/navigation';
 import React, { useState } from "react";
-import { useUser } from "@/app/context/userContext";
+import { useUser } from "@/app/lib/context/userContext";
 import { usePathname } from "next/navigation";
 
 const Separator: React.FC = () => <div className='separator'>|</div>
@@ -32,7 +32,7 @@ const Nav: React.FC = () => {
                         </div>
 
                         <div className='navLinks'>
-                            <Link href={'/'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                            <Link href={'/dashboard'} className={`link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
                             <Separator/>
                             <Link href={'/instructions'}
                                   className={`link ${pathname === '/instructions' ? 'active' : ''}`}>Instructions</Link>

@@ -1,7 +1,7 @@
 'use client';
 import styles from './page.module.css';
 import React, { useState } from "react";
-import { useUser } from "@/app/context/userContext";
+import { useUser } from "@/app/lib/context/userContext";
 import { useRouter} from "next/navigation";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 

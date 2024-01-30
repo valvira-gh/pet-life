@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Nunito } from 'next/font/google'
 import './globals.css'
 
-import { UserProvider } from './context/userContext';
-import Header from './components/Header';
-import Navigation from './navigation/Navigation';
+import { UserProvider } from '@/app/lib/context/userContext';
+import Header from '@/app/larger-components/header/Header';
+import Nav from '@/app/larger-components/nav/Nav';
 
 const inter = Nunito({ subsets: ['latin'] })
 
@@ -25,7 +25,7 @@ export default function RootLayout({
                 <header>
                     <Header title="Pet Life" />
                     <nav>
-                        <Navigation />
+                        <Nav />
                     </nav>
                 </header>
 

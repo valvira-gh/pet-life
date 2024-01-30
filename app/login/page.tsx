@@ -3,7 +3,7 @@ import styles from './page.module.css';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import React, { useState } from "react";
-import { useUser } from '@/app/context/userContext';
+import { useUser } from '@/app/lib/context/userContext';
 
 
 const Login: React.FC = () => {

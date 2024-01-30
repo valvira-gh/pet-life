@@ -1,4 +1,4 @@
-import styles from '../../components/components.module.css';
+import styles from '@/app/ui/components/components.module.css';
 interface HeaderProps {
     title: string
 }

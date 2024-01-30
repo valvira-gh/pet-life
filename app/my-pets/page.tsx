@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import styles from './page.module.css';
-import { useUser} from "@/app/context/userContext";
+import { useUser} from "@/app/lib/context/userContext";
 import AddPetForm from '@/app/add-pet/page';
 import { useRouter } from "next/navigation";
 

@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from "react";
 import Login from './login/page'
 import styles from './page.module.css';
-import {useUser} from '@/app/context/userContext';
+import {useUser} from '@/app/lib/context/userContext';
 
 const Home = () => {
     const { user } = useUser();
