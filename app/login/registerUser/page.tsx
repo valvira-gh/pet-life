@@ -32,7 +32,7 @@ const RegisterUser: React.FC = () => {
         if (registerUser(newUser.username, newUser.password)) {
             // Register is success, re-direct to Login-page:
             console.log("Registration successful!")
-            router.push('./login')
+            router.push('../')
         } else {
             // Username is already taken:
             console.log("Username is already taken!")

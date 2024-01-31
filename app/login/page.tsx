@@ -27,7 +27,7 @@ const Login: React.FC = () => {
     return (
         <div className={styles.container}>
             <div className={styles.titleContainer}>
-                <h3 className={styles.title}>Login or <Link href={'/registerUser'} className={styles.registerUser}>Register
+                <h3 className={styles.title}>Login or <Link href={'./login/registerUser'} className={styles.registerUser}>Register
                     User</Link></h3>
             </div>
 
