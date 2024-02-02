@@ -3,7 +3,6 @@ import React, {useEffect, useState} from "react";
 import Login from './login/page'
 import styles from './page.module.css';
 import {useUser} from '@/app/lib/context/userContext';
-import Dashboard from "@/app/dashboard/page";
 import { cutFirstName } from "@/app/utils/feature_functions";
 
 const Home = () => {
@@ -21,8 +20,8 @@ const Home = () => {
         <div className={styles.App}>
             <div className={styles.container}>
                 {user.isLogged ? (
-                    <h3 className={styles.greeting}>Welcome
-                        <Dashboard />
+                    <h3 className={styles.greeting}>Welcome {cutFirstName(user.username)}!
+                       
                         </h3>
 
                 )

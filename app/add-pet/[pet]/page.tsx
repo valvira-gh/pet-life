@@ -6,9 +6,8 @@ import petQuestions from "@/app/lib/petQuestions";
 
 const PetPage: React.FC = ({ questions }) => {
     const router = useRouter();
-    const { pet } = router.query;
-
-    return (
+  
+        return (
         <div>
             <h1>Questions for {pet}</h1>
             <ul>
